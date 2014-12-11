@@ -1,1 +1,1 @@
-SUBDIRS	= metaserver dataserver client manserver common
+SUBDIRS	= metaserver dataserver client manserver common test utils
