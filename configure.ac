@@ -2,8 +2,8 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.63])
-AC_INIT([soeyes], [0.1], [])
-AC_CONFIG_SRCDIR([src/consist/main.c])
+AC_INIT([AstroFS], [0.1], [])
+#AC_CONFIG_SRCDIR([src/consist/main.c])
 AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE
@@ -16,7 +16,7 @@ AC_PROG_CC
 have_pthreads=no
 AC_SEARCH_LIBS([pthread_create],[pthread],[have_pthreads=yes])
 
-# Checks for header fiples.
+# Checks for header files.
 
 if test "x${have_pthreads}" = xyes; then
                 AC_CHECK_HEADERS([pthread.h],[],[have_pthreads=no])
@@ -41,15 +41,12 @@ AC_CHECK_HEADERS([stdlib.h])
 PTHREAD_LIBS=-lpthread
 AC_SUBST(PTHREAD_LIBS)
 
-CFITSIO_LIBS=-lcfitsio
-AC_SUBST(CFITSIO_LIBS)
-
-CCFITS_LIBS=-lCCfits
-AC_SUBST(CCFITS_LIBS)
-
 AC_CONFIG_FILES([Makefile
-				 src/Makefile
-				 src/consist/Makefile
-                 src/index/Makefile
-                 src/lfufs/Makefile])
+		 src/Makefile
+		 src/client/Makefile
+		 src/manserver/Makefile
+		 src/common/Makefile
+         src/metaserver/Makefile
+         src/dataserver/Makefile])
+
 AC_OUTPUT

@@ -1,3 +1,1 @@
-SUBDIRS 	= consist index
-
-
+SUBDIRS	= metaserver dataserver client manserver common

@@ -32,7 +32,8 @@ FS="aclocal.m4
     stamp-h1
 	ltmain.sh
     Makefile.in
-	README"
+	README
+    compile"
 REMOVEFILES=($FS)
 
 length=${#REMOVEFILES[@]}

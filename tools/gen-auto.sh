@@ -1,23 +1,58 @@
 #!/bin/bash
 
 FULLPATH=$(cd "$(dirname "$0")";pwd)
-echo "full path to currently executed script is : ${FULLPATH}"
+echo "============================================"
+echo "Full Path to Current Executable Script : ${FULLPATH}"
+echo "============================================"
 BASEDIR=`dirname $FULLPATH`
-echo "parent dir is $BASEDIR"
 
+echo "============================================"
+echo "Jump to Parent Folder: $BASEDIR"
+echo "============================================"
 cd $BASEDIR
 ls -lsh
 
+echo "============================================"
 echo "!!!Current Working Directory: ${BASEPATH}"
+echo "============================================"
 
-#libtoolize --force
+libtoolize --copy --force # copy micro to m4 folder
 aclocal
 autoheader
-autoconf
-touch AUTHORS NEWS README ChangeLog
+autoconf -v
+
+if [ "$BASEDIR" == "$FULLPATH" ];then
+    echo "Wrong Working Direcory!"
+	exit
+fi
+
+if [ ! -f "AUTHORS" ]; then
+    echo "AUTHORS"
+    touch AUTHORS
+fi
+
+if [ ! -f "NEWS" ]; then
+    echo "NEWS"
+    touch NEWS
+fi
+
+if [ ! -f "README" ]; then
+	echo "README"
+    touch README
+fi
+
+if [ ! -f "ChangeLog" ]; then
+    echo "ChangeLog"
+    touch ChangeLog
+fi
+
+
 automake --add-missing --copy --gnu
-#######################################
-##In order to debug macros
-#######################################
+
 ./configure CFLAGS="-gdwarf-2 -g3 -O0" 
+
+echo "============================================"
+echo "./configure has done. Run [make & make install] "
+echo "============================================"
+
 
