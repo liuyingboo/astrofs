@@ -1,1 +1,1 @@
-noinst_PROGRAMS=test
+
