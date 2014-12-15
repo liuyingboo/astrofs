@@ -19,7 +19,8 @@ echo "============================================"
 libtoolize --copy --force # copy micro to m4 folder
 aclocal
 autoheader
-autoconf -v
+#autoconf -v
+autoconf
 
 if [ "$BASEDIR" == "$FULLPATH" ];then
     echo "Wrong Working Direcory!"
