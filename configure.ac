@@ -36,6 +36,7 @@ if test "x${have_pthreads}" = xno; then
                 Building a single-threaded version
                 -------------------------------------------------------------])
 fi
+
 AC_CHECK_LIB([gdsl],[gdsl_list_alloc],[],[
 			AC_MSG_ERROR([You need to have GDSL installed!])
 			])
@@ -77,6 +78,7 @@ AC_CONFIG_FILES([Makefile
          src/metaserver/Makefile
 		 src/test/Makefile
 		 src/utils/Makefile
+         src/libs/Makefile
          src/dataserver/Makefile])
 
 AC_OUTPUT

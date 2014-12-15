@@ -12,6 +12,7 @@ FS="aclocal.m4
 	autom4te.cache 
 	configure 
 	COPYING 
+    libtool
 	INSTALL 
 	NEWS 
 	AUTHORS 
